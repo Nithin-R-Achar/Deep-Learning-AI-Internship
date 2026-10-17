@@ -1,0 +1,276 @@
+{
+  "Apple___Apple_scab": {
+    "crop": "Apple",
+    "disease": "Apple Scab",
+    "is_healthy": false,
+    "pathogen": "Fungus (Venturia inaequalis)",
+    "severity": "Moderate to High",
+    "symptoms": [
+      "Olive-green to dark brown or black velvety spots on leaves",
+      "Deformed, puckered, or curling leaves",
+      "Yellowing of leaf tissue surrounding lesions",
+      "Premature leaf drop in severe infections",
+      "Corky, scabby brown lesions on fruit"
+    ],
+    "treatment": [
+      "Apply protective fungicides (Captan, Mancozeb, or copper-based sprays) in early spring before rain.",
+      "Prune overcrowded branches to improve air circulation and sunlight penetration.",
+      "Rake and destroy fallen leaves in autumn to eliminate overwintering fungal spores.",
+      "Avoid overhead watering; use drip irrigation to keep foliage dry."
+    ],
+    "prevention": "Plant scab-resistant cultivars such as Liberty, Enterprise, or Freedom, and maintain regular orchard sanitation."
+  },
+  "Apple___Black_rot": {
+    "crop": "Apple",
+    "disease": "Black Rot (Frogeye Leaf Spot)",
+    "is_healthy": false,
+    "pathogen": "Fungus (Botryosphaeria obtusa)",
+    "severity": "High",
+    "symptoms": [
+      "Small purple spots on upper leaf surfaces expanding into 'frogeye' spots with tan centers and purple margins",
+      "Black sunken cankers on twigs and tree bark",
+      "Firm brown decay on fruit turning completely black with mummified texture"
+    ],
+    "treatment": [
+      "Prune out dead wood, cankers, and blighted twigs during the dormant season.",
+      "Apply thiophanate-methyl, captan, or sulfur sprays starting at petal fall.",
+      "Remove and burn all mummified apples remaining on branches or the ground."
+    ],
+    "prevention": "Sterilize pruning tools between cuts using 70% isopropyl alcohol or 10% bleach solution, and avoid mechanical injury to tree trunks."
+  },
+  "Apple___Cedar_apple_rust": {
+    "crop": "Apple",
+    "disease": "Cedar Apple Rust",
+    "is_healthy": false,
+    "pathogen": "Fungus (Gymnosporangium juniperi-virginianae)",
+    "severity": "Moderate",
+    "symptoms": [
+      "Bright yellow-orange or reddish spots on upper leaf surfaces",
+      "Tiny black raised dots (pycnia) inside orange lesions",
+      "Fringe-like fungal tube structures (aecia) on the underside of leaves",
+      "Premature defoliation and stunted tree vigor"
+    ],
+    "treatment": [
+      "Apply preventive fungicides containing myclobutanil or mancozeb at pink bud stage through early summer.",
+      "Remove nearby Eastern red cedar or juniper trees that serve as alternate hosts within a 1-2 mile radius if practical.",
+      "Prune out rust galls from nearby juniper bushes before spring rains."
+    ],
+    "prevention": "Select resistant apple varieties such as Dayton, Redfree, or William's Pride."
+  },
+  "Apple___healthy": {
+    "crop": "Apple",
+    "disease": "Healthy Leaf",
+    "is_healthy": true,
+    "pathogen": "None (Healthy)",
+    "severity": "None",
+    "symptoms": [
+      "Uniform vibrant green coloration",
+      "Smooth leaf margins without spots, wilting, or curling",
+      "Firm leaf turgor and normal vegetative development"
+    ],
+    "treatment": [
+      "No chemical or corrective treatment needed.",
+      "Maintain consistent seasonal irrigation and balanced fertilization (N-P-K)."
+    ],
+    "prevention": "Continue periodic scouting for early signs of pests or mildew and ensure good soil drainage."
+  },
+  "Corn_(maize)___Common_rust_": {
+    "crop": "Corn (Maize)",
+    "disease": "Common Rust",
+    "is_healthy": false,
+    "pathogen": "Fungus (Puccinia sorghi)",
+    "severity": "Moderate",
+    "symptoms": [
+      "Small, powdery cinnamon-brown to dark orange pustules on both upper and lower leaf surfaces",
+      "Pustules rupture epidermal tissue, releasing powdery spores",
+      "Leaves turn yellow and may wither prematurely under high humidity"
+    ],
+    "treatment": [
+      "Apply foliar fungicides (strobilurins or triazoles) if pustules appear before tassel emergence and weather is cool and moist.",
+      "Ensure balanced soil potassium levels to support leaf cell wall resistance."
+    ],
+    "prevention": "Plant rust-resistant hybrid corn seeds; rotate crops with non-grass crops like legumes."
+  },
+  "Corn_(maize)___Northern_Leaf_Blight": {
+    "crop": "Corn (Maize)",
+    "disease": "Northern Corn Leaf Blight",
+    "is_healthy": false,
+    "pathogen": "Fungus (Exserohilum turcicum)",
+    "severity": "High",
+    "symptoms": [
+      "Long, elliptical, cigar-shaped grayish-green to tan lesions (1-6 inches long)",
+      "Lesions coalesce, causing large areas of leaf necrosis",
+      "Premature death of leaves giving fields a burned or frost-damaged appearance"
+    ],
+    "treatment": [
+      "Apply dual-mode foliar fungicides (QoI + DMI) at early silk emergence.",
+      "Incorporate deep tillage of crop debris after harvest to bury fungal inoculants."
+    ],
+    "prevention": "Choose corn hybrids containing Ht-resistance genes and practice a 2-year crop rotation."
+  },
+  "Corn_(maize)___healthy": {
+    "crop": "Corn (Maize)",
+    "disease": "Healthy Leaf",
+    "is_healthy": true,
+    "pathogen": "None (Healthy)",
+    "severity": "None",
+    "symptoms": [
+      "Long, arching, vibrant green foliage",
+      "Clear, prominent central veins without discoloration or pustules",
+      "Robust stalk attachment and vigorous photosynthesis"
+    ],
+    "treatment": [
+      "No treatment required.",
+      "Maintain nitrogen sidedressing during active vegetative growth."
+    ],
+    "prevention": "Maintain soil moisture during pollination and continue standard weed and pest management."
+  },
+  "Potato___Early_blight": {
+    "crop": "Potato",
+    "disease": "Early Blight",
+    "is_healthy": false,
+    "pathogen": "Fungus (Alternaria solani)",
+    "severity": "Moderate to High",
+    "symptoms": [
+      "Dark brown to black lesions showing distinctive concentric rings ('target board' pattern)",
+      "Lesions initially develop on older, lower foliage and progress upward",
+      "Chlorotic yellow halos surrounding necrotic spots",
+      "Severe defoliation leading to reduced tuber sizing"
+    ],
+    "treatment": [
+      "Apply chlorothalonil, mancozeb, or azoxystrobin at early symptom onset.",
+      "Remove and destroy severely affected lower leaves to reduce spore spread.",
+      "Avoid excessive overhead sprinkling in late afternoon to reduce leaf wetness hours."
+    ],
+    "prevention": "Practice a 3-4 year crop rotation away from solanaceous plants; maintain optimal plant nutrition to prevent plant stress."
+  },
+  "Potato___Late_blight": {
+    "crop": "Potato",
+    "disease": "Late Blight",
+    "is_healthy": false,
+    "pathogen": "Oomycete / Water Mold (Phytophthora infestans)",
+    "severity": "Critical",
+    "symptoms": [
+      "Water-soaked dark green to purplish-black irregular lesions on leaves",
+      "White fuzzy mildew growth on leaf undersides during cool, humid mornings",
+      "Rapidly collapsing and rotting stems with foul odor",
+      "Tuber infection leading to dry granular reddish-brown rot"
+    ],
+    "treatment": [
+      "Immediately apply systemic fungicides containing metalaxyl, cymoxanil, or dimethomorph.",
+      "Destroy and bag heavily infested plants immediately; do NOT compost them.",
+      "Stop overhead irrigation immediately to minimize leaf moisture."
+    ],
+    "prevention": "Plant certified disease-free seed tubers, eliminate cull piles, and monitor local late blight weather warning alerts."
+  },
+  "Potato___healthy": {
+    "crop": "Potato",
+    "disease": "Healthy Leaf",
+    "is_healthy": true,
+    "pathogen": "None (Healthy)",
+    "severity": "None",
+    "symptoms": [
+      "Broad, compound dark green leaflets",
+      "Supple texture with even leaf margins",
+      "No spotting, necrosis, or edge burning"
+    ],
+    "treatment": [
+      "No treatment required.",
+      "Keep soil evenly moist, especially during tuber initiation and bulking."
+    ],
+    "prevention": "Hilling soil over developing tubers to prevent greening and fungal contamination."
+  },
+  "Tomato___Bacterial_spot": {
+    "crop": "Tomato",
+    "disease": "Bacterial Spot",
+    "is_healthy": false,
+    "pathogen": "Bacterium (Xanthomonas perforans / euvesicatoria)",
+    "severity": "High",
+    "symptoms": [
+      "Small (less than 3mm), dark brown, water-soaked circular spots with yellow halos",
+      "Leaf spots may look greasy and dry to form ragged holes",
+      "Extensive leaf yellowing, browning, and premature drop",
+      "Raised black blister-like scabs on tomato fruits"
+    ],
+    "treatment": [
+      "Spray copper-based bactericides combined with mancozeb for improved bacterial suppression.",
+      "Avoid handling or working among wet plants to prevent spreading bacteria across foliage.",
+      "Sanitize all stakes, cages, and pruning shears thoroughly."
+    ],
+    "prevention": "Use certified pathogen-free seeds, hot-water treat seeds before planting, and use drip irrigation at base of plants."
+  },
+  "Tomato___Early_blight": {
+    "crop": "Tomato",
+    "disease": "Early Blight",
+    "is_healthy": false,
+    "pathogen": "Fungus (Alternaria linariae / solani)",
+    "severity": "Moderate to High",
+    "symptoms": [
+      "Brown to black circular spots with concentric target-like rings",
+      "Starts on oldest leaves closest to the ground and works upward",
+      "Surrounding leaf tissue turns yellow and eventually wilts and falls off",
+      "Dark sunken lesions on stems and fruit calyx"
+    ],
+    "treatment": [
+      "Prune off the lowest 12-18 inches of leaves once plants are established to prevent soil splash.",
+      "Apply bio-fungicides (Bacillus subtilis) or copper/chlorothalonil sprays at first sign.",
+      "Mulch heavily around the plant base with clean straw or plastic mulch."
+    ],
+    "prevention": "Rotate crops every 3 years away from tomatoes, peppers, and eggplants; stake plants for proper air movement."
+  },
+  "Tomato___Late_blight": {
+    "crop": "Tomato",
+    "disease": "Late Blight",
+    "is_healthy": false,
+    "pathogen": "Oomycete (Phytophthora infestans)",
+    "severity": "Critical",
+    "symptoms": [
+      "Large, irregularly shaped pale to greasy dark-brown lesions",
+      "White fungal fuzzy growth on underside of leaves in humid weather",
+      "Greasy dark brown patches on green or ripening tomatoes",
+      "Whole plant can turn brown, shrivel, and collapse within 7 to 14 days"
+    ],
+    "treatment": [
+      "Promptly apply protective or systemic fungicides (copper, chlorothalonil, or mandipropamid).",
+      "Severely affected plants should be removed, sealed in bags, and discarded in trash.",
+      "Keep plant canopies dry by providing ample spacing and avoiding evening watering."
+    ],
+    "prevention": "Plant resistant tomato cultivars (e.g., Defiant, Mountain Merit, Iron Lady) and scout garden twice weekly."
+  },
+  "Tomato___Leaf_Mold": {
+    "crop": "Tomato",
+    "disease": "Leaf Mold",
+    "is_healthy": false,
+    "pathogen": "Fungus (Passalora fulva / Fulvia fulva)",
+    "severity": "Moderate",
+    "symptoms": [
+      "Pale green to yellow diffuse spots on upper leaf surfaces",
+      "Olive-green to velvety brown mold growth on corresponding undersides of leaves",
+      "Affected leaves curl, wither, and drop prematurely",
+      "Most prevalent in high humidity greenhouse and high-tunnel environments"
+    ],
+    "treatment": [
+      "Increase ventilation, exhaust fans, and heating in greenhouses to reduce relative humidity below 85%.",
+      "Apply potassium bicarbonate, neem oil, or sulfur-based fungicides.",
+      "Remove affected lower leaves to lower spore count."
+    ],
+    "prevention": "Select leaf mold resistant hybrid varieties and space plants generously for cross ventilation."
+  },
+  "Tomato___healthy": {
+    "crop": "Tomato",
+    "disease": "Healthy Leaf",
+    "is_healthy": true,
+    "pathogen": "None (Healthy)",
+    "severity": "None",
+    "symptoms": [
+      "Lush, deep green serrated compound foliage",
+      "Stout hairy stems with no discoloration or wilting",
+      "Active flowering and robust fruit set"
+    ],
+    "treatment": [
+      "No corrective treatment required.",
+      "Feed with balanced tomato fertilizer rich in calcium to prevent blossom end rot."
+    ],
+    "prevention": "Maintain consistent deep watering and apply organic mulch around root zones."
+  }
+}

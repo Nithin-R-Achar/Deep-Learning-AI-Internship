@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About & Technical Architecture - FloraScan AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+  <style>
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+    }
+    .spec-table th, .spec-table td {
+      border: 1px solid var(--gray-200);
+      padding: 0.65rem 1rem;
+      text-align: left;
+    }
+    .spec-table th {
+      background-color: var(--gray-100);
+      color: var(--gray-700);
+      font-weight: 600;
+    }
+    .code-block {
+      background: var(--gray-900);
+      color: #38bdf8;
+      padding: 1.25rem;
+      border-radius: var(--border-radius);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+      line-height: 1.5;
+    }
+    .feature-list {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .feature-list li {
+      margin-bottom: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <span class="brand-icon">🌿</span>
+        <div>FloraScan <span>AI</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Detector</a>
+        <a href="/about" class="nav-link active">Model & Architecture</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-wrapper" style="max-width: 960px;">
+    <section class="hero" style="margin-bottom: 2rem;">
+      <h1>Architecture & Model Specifications</h1>
+      <p>Deep Learning pipeline, transfer learning configuration, and REST API documentation.</p>
+    </section>
+
+    <!-- Architecture Overview -->
+    <div class="card" style="margin-bottom: 2rem;">
+      <h2 class="section-title"><span>🧠</span> Deep Learning Architecture</h2>
+      <p>
+        FloraScan AI leverages <strong>MobileNetV2</strong>, an efficient convolutional neural network pre-trained on ImageNet (1.4 million images across 1,000 categories). MobileNetV2 uses <em>inverted residual blocks</em> and <em>depthwise separable convolutions</em> to drastically reduce parameter count and compute complexity while preserving high representational capacity.
+      </p>
+      <ul class="feature-list" style="margin-top: 0.75rem;">
+        <li><strong>Backbone:</strong> MobileNetV2 pre-trained weights (feature extractor producing 1,280-dimensional embeddings)</li>
+        <li><strong>Custom Classification Head:</strong> <code>Dropout(0.25) &rarr; Linear(1280, 512) &rarr; ReLU &rarr; Dropout(0.20) &rarr; Linear(512, N_classes)</code></li>
+        <li><strong>Loss Function:</strong> Cross-Entropy Loss with Softmax activation</li>
+        <li><strong>Optimizer:</strong> AdamW (Learning rate: <code>3e-4</code>, Weight decay: <code>1e-4</code>) with Cosine Annealing learning rate schedule</li>
+      </ul>
+    </div>
+
+    <!-- Training Metrics -->
+    {% if history %}
+    <div class="card" style="margin-bottom: 2rem;">
+      <h2 class="section-title"><span>📊</span> Model Training History</h2>
+      <p>Metrics recorded per epoch during fine-tuning on the PlantVillage dataset split:</p>
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Epoch</th>
+            <th>Training Loss</th>
+            <th>Training Accuracy</th>
+            <th>Validation Loss</th>
+            <th>Validation Accuracy</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for h in history %}
+          <tr>
+            <td>Epoch {{ h.epoch }}</td>
+            <td>{{ "%.4f"|format(h.train_loss) }}</td>
+            <td><strong>{{ "%.2f"|format(h.train_acc) }}%</strong></td>
+            <td>{{ "%.4f"|format(h.val_loss) }}</td>
+            <td style="color: var(--primary-dark); font-weight:700;">{{ "%.2f"|format(h.val_acc) }}%</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+
+    <!-- REST API Documentation -->
+    <div class="card" style="margin-bottom: 2rem;">
+      <h2 class="section-title"><span>🔌</span> RESTful API Documentation</h2>
+      <p>Integrate automated leaf disease detection into mobile applications, drones, or automated greenhouse systems via standard HTTP requests.</p>
+
+      <h3 style="font-size: 1rem; margin-top: 1.25rem; color: var(--gray-800);">1. Detect Disease via Multipart Form File</h3>
+      <div class="code-block">
+curl -X POST http://127.0.0.1:5000/api/predict \
+     -F "image=@/path/to/leaf_photo.jpg"
+      </div>
+
+      <h3 style="font-size: 1rem; margin-top: 1.25rem; color: var(--gray-800);">2. Detect Disease via Base64 JSON</h3>
+      <div class="code-block">
+curl -X POST http://127.0.0.1:5000/api/predict \
+     -H "Content-Type: application/json" \
+     -d '{"image_base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ..."}'
+      </div>
+
+      <h3 style="font-size: 1rem; margin-top: 1.25rem; color: var(--gray-800);">Sample API JSON Response</h3>
+      <div class="code-block" style="color: #a7f3d0;">
+{
+  "status": "success",
+  "prediction": {
+    "class": "Tomato___Early_blight",
+    "crop": "Tomato",
+    "disease": "Early Blight",
+    "is_healthy": false,
+    "confidence_percent": 98.4,
+    "severity": "Moderate to High",
+    "pathogen": "Fungus (Alternaria linariae / solani)",
+    "symptoms": [
+      "Brown to black circular spots with concentric target-like rings",
+      "Starts on oldest leaves closest to the ground"
+    ],
+    "treatment": [
+      "Prune off the lowest 12-18 inches of leaves to prevent soil splash.",
+      "Apply copper/chlorothalonil sprays at first sign."
+    ],
+    "prevention": "Rotate crops every 3 years away from solanaceous plants."
+  },
+  "inference_time_ms": 28.4
+}
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>FloraScan AI &bull; Built with PyTorch, Flask & the PlantVillage Open Dataset.</p>
+  </footer>
+
+</body>
+</html>

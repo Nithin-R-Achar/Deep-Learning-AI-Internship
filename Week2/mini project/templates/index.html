@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FloraScan AI - Plant Leaf Disease Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <span class="brand-icon">🌿</span>
+        <div>FloraScan <span>AI</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link active">Detector</a>
+        <a href="/about" class="nav-link">Model & Architecture</a>
+        <span class="badge-pill">
+          {% if model_ready %}
+            ● Model Online
+          {% else %}
+            ○ Model Offline
+          {% endif %}
+        </span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-wrapper">
+    <section class="hero">
+      <h1>Plant Leaf Disease Detector</h1>
+      <p>Upload a leaf photograph or select a sample below to diagnose plant diseases with deep learning confidence scores and botanical treatments.</p>
+    </section>
+
+    <div class="app-grid">
+      <!-- Left Column: Input & Samples -->
+      <div class="card">
+        <h2 class="card-title">
+          <span>📷</span> Leaf Image Scanner
+        </h2>
+
+        <!-- Upload Drop Zone -->
+        <div class="dropzone" id="dropzone">
+          <span class="dropzone-icon">🍃</span>
+          <div class="dropzone-text">Drop leaf photo here or click to browse</div>
+          <div class="dropzone-subtext">Supports JPG, PNG, WEBP up to 16MB</div>
+          <button type="button" class="btn btn-outline btn-sm">Select File</button>
+          <input type="file" id="fileInput" class="file-input" accept="image/*">
+        </div>
+
+        <!-- Preview Container -->
+        <div class="preview-container" id="previewContainer">
+          <img id="previewImg" class="preview-img" src="" alt="Selected leaf preview">
+          <button id="removeBtn" class="preview-remove" title="Remove image">&times;</button>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="action-bar">
+          <button id="analyzeBtn" class="btn btn-primary" disabled>
+            <span>🔬</span> Diagnose Leaf
+          </button>
+          <button id="resetBtn" class="btn btn-outline">
+            <span>↺</span> Reset
+          </button>
+        </div>
+
+        <!-- Sample leaves demo gallery -->
+        {% if samples %}
+        <div class="samples-section">
+          <div class="samples-title">Try with Instant Test Samples</div>
+          <div class="sample-grid">
+            {% for s in samples %}
+            <div class="sample-item" data-filename="{{ s.filename }}" title="{{ s.label }}">
+              <img src="{{ url_for('static', filename='samples/' + s.filename) }}" alt="{{ s.label }}">
+              <div class="sample-label">{{ s.label }}</div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Right Column: Results & Diagnosis -->
+      <div class="card results-card">
+        <h2 class="card-title">
+          <span>🩺</span> Diagnosis & Botanical Report
+        </h2>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState">
+          <div class="empty-state-icon">🔬</div>
+          <h3>Awaiting Leaf Scan</h3>
+          <p>Select a file from your device or click one of the quick test samples on the left to see the AI diagnosis.</p>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading-state" id="loadingState">
+          <div class="spinner"></div>
+          <h3 style="font-size: 1.1rem; color: var(--gray-700);">Analyzing Leaf Patterns...</h3>
+          <p style="color: var(--gray-400); font-size: 0.85rem; margin-top: 0.25rem;">Extracting convolutional features & running inference</p>
+        </div>
+
+        <!-- Diagnosis Details -->
+        <div class="diagnosis-container" id="diagnosisContainer">
+          <!-- Status Badge -->
+          <div id="statusBadge" class="status-badge status-healthy">
+            <span>&#10004;</span> Healthy Leaf
+          </div>
+
+          <!-- Main Disease Title -->
+          <h2 id="diseaseName" class="disease-name">Tomato Early Blight</h2>
+          <div id="cropName" class="crop-name">Crop: Tomato</div>
+
+          <!-- Confidence Score Bar -->
+          <div class="confidence-box">
+            <div class="confidence-header">
+              <span>Model Prediction Confidence</span>
+              <span id="confidenceVal" class="confidence-val">98.5%</span>
+            </div>
+            <div class="progress-track">
+              <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Metadata Badges -->
+          <div class="meta-badges">
+            <span id="severityPill" class="meta-pill">Severity: Moderate</span>
+            <span id="pathogenPill" class="meta-pill">Pathogen: Fungus</span>
+            <span id="timePill" class="meta-pill">Inference: 24 ms</span>
+          </div>
+
+          <!-- Alternate Candidates Breakdown -->
+          <div class="candidates-title" style="font-size:0.85rem; font-weight:700; color:var(--gray-600); margin-bottom: 0.4rem;">
+            Ranked Class Probabilities
+          </div>
+          <div class="candidates-list" id="candidatesList"></div>
+
+          <!-- Advice Tabs -->
+          <div class="tab-container">
+            <div class="tab-buttons">
+              <button class="tab-btn active" data-tab="symptoms">Symptoms</button>
+              <button class="tab-btn" data-tab="treatment">Treatment & Remedies</button>
+              <button class="tab-btn" data-tab="prevention">Prevention</button>
+            </div>
+            <div class="tab-content" id="tabContent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>FloraScan AI &bull; Built with PyTorch (MobileNetV2 Transfer Learning), Flask & the PlantVillage Open Dataset.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+[
+  {
+    "filename": "apple_cedar_apple_rust.jpg",
+    "class_name": "Apple___Cedar_apple_rust",
+    "label": "Apple - Cedar apple rust"
+  },
+  {
+    "filename": "apple_apple_scab.jpg",
+    "class_name": "Apple___Apple_scab",
+    "label": "Apple - Apple scab"
+  },
+  {
+    "filename": "potato_healthy.jpg",
+    "class_name": "Potato___healthy",
+    "label": "Potato - healthy"
+  },
+  {
+    "filename": "potato_early_blight.jpg",
+    "class_name": "Potato___Early_blight",
+    "label": "Potato - Early blight"
+  },
+  {
+    "filename": "corn_common_rust_.jpg",
+    "class_name": "Corn_(maize)___Common_rust_",
+    "label": "Corn (maize) - Common rust "
+  },
+  {
+    "filename": "apple_healthy.jpg",
+    "class_name": "Apple___healthy",
+    "label": "Apple - healthy"
+  },
+  {
+    "filename": "tomato_early_blight.jpg",
+    "class_name": "Tomato___Early_blight",
+    "label": "Tomato - Early blight"
+  },
+  {
+    "filename": "potato_late_blight.jpg",
+    "class_name": "Potato___Late_blight",
+    "label": "Potato - Late blight"
+  },
+  {
+    "filename": "corn_healthy.jpg",
+    "class_name": "Corn_(maize)___healthy",
+    "label": "Corn (maize) - healthy"
+  },
+  {
+    "filename": "tomato_healthy.jpg",
+    "class_name": "Tomato___healthy",
+    "label": "Tomato - healthy"
+  },
+  {
+    "filename": "tomato_bacterial_spot.jpg",
+    "class_name": "Tomato___Bacterial_spot",
+    "label": "Tomato - Bacterial spot"
+  },
+  {
+    "filename": "tomato_late_blight.jpg",
+    "class_name": "Tomato___Late_blight",
+    "label": "Tomato - Late blight"
+  }
+]
